@@ -1,9 +1,12 @@
 package com.dynamic.register;
 
-import com.dynamic.register.service.RegisterService;
+import com.dynamic.register.model.user.UserDetailsModel;
+import com.dynamic.register.wrapper.BaseParameters;
+import com.dynamic.register.wrapper.request.RequestWrapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -15,7 +18,9 @@ public class DynamicRegisterApplication{// implements CommandLineRunner {
 //    @Autowired
 //    private RegisterService registerService;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        log.info(mapper.writeValueAsString(new RequestWrapper(new UserDetailsModel(), new BaseParameters())));
         SpringApplication.run(DynamicRegisterApplication.class, args);
     }
 
