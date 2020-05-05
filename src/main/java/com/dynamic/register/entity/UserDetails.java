@@ -22,6 +22,8 @@ public class UserDetails {
 
     private Date date;
 
+    private byte[] pic;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserCredential password;
@@ -80,5 +82,13 @@ public class UserDetails {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public byte[] getPic() {
+        return pic;
+    }
+
+    public void setPic(byte[] pic) {
+        this.pic = pic;
     }
 }

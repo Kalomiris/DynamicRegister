@@ -4,9 +4,15 @@ import org.apache.commons.text.RandomStringGenerator;
 
 public class PasswordGenerator {
 
-    public static String generatePassword(){
-        RandomStringGenerator pwdGenerator = new RandomStringGenerator.Builder().withinRange(33, 45)
-                .build();
-        return pwdGenerator.generate(8);
+    private static final char[][] PAIRS = {{'a', 'z'}, {'0', '9'}, {'A', 'Z'}};
+
+    public static String generatePassword() {
+        return new RandomStringGenerator.
+                Builder().
+                withinRange(33, 45).
+                withinRange(PAIRS).
+                build().
+                generate(6);
+
     }
 }

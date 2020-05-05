@@ -23,6 +23,16 @@ public class UserDetailsModel extends BaseModel {
     @NotNull
     private String address;
 
+    private byte[] picByte;
+
+    public byte[] getPicByte() {
+        return picByte;
+    }
+
+    public void setPicByte(byte[] picByte) {
+        this.picByte = picByte;
+    }
+
     public String getAddress() {
         return address;
     }

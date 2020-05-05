@@ -11,16 +11,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DynamicRegisterApplication{// implements CommandLineRunner {
+public class DynamicRegisterApplication{
 
-    private static final Logger log = LoggerFactory.getLogger(DynamicRegisterApplication.class);
-
-//    @Autowired
-//    private RegisterService registerService;
-
-    public static void main(String[] args) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        log.info(mapper.writeValueAsString(new RequestWrapper(new UserDetailsModel(), new BaseParameters())));
+    public static void main(String[] args) {
         SpringApplication.run(DynamicRegisterApplication.class, args);
     }
 

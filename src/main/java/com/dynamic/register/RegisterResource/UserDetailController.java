@@ -53,19 +53,4 @@ public class UserDetailController {
 
         return errors;
     }
-
-
-//    @PostMapping(path = "verify/user", consumes = "application/json", produces = "application/json")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public UserData findByPassword(@RequestBody BaseParameters parameters) {
-//        LOGGER.info("DynamicRegisterController/findbypassword");
-//        String password = parameters.getPassword();
-//        return registerService.findDynamicRegisterUserByPassword(password);
-//    }
-//
-//    @GetMapping(value = "/findAll", produces = "application/json")
-//    public List<UserData> findAll() {
-//        LOGGER.info("DynamicRegisterController/findAll");
-//        return registerService.findAll();
-//    }
 }

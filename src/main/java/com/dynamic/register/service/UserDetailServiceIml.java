@@ -11,7 +11,6 @@ import com.dynamic.register.wrapper.response.ResponseData;
 import com.dynamic.register.wrapper.response.ResponseWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -24,14 +23,17 @@ public class UserDetailServiceIml implements UserDetailService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserDetailServiceIml.class);
 
-    @Autowired
-    private SaveUserDetailRepo saveUserDetailRepo;
+    private final SaveUserDetailRepo saveUserDetailRepo;
 
-    @Autowired
-    private CredentialService credentialService;
+    private final CredentialService credentialService;
     
-    @Autowired
-    private EmailService emailService;
+    private final EmailService emailService;
+
+    public UserDetailServiceIml(SaveUserDetailRepo saveUserDetailRepo, CredentialService credentialService, EmailService emailService) {
+        this.saveUserDetailRepo = saveUserDetailRepo;
+        this.credentialService = credentialService;
+        this.emailService = emailService;
+    }
 
     @Override
     public ResponseWrapper saveUser(UserDetailsModel userDetailsModel) throws Exception {
@@ -45,6 +47,7 @@ public class UserDetailServiceIml implements UserDetailService {
             registerUser.setAddress(userDetailsModel.getAddress());
             registerUser.setPhone(userDetailsModel.getPhone());
             registerUser.setDate(new Date());
+            registerUser.setPic(userDetailsModel.getPicByte());
             saveUserDetailRepo.save(registerUser);
             CredentialModel credential = new CredentialModel();
             credential.setUserName(userDetailsModel.getEmail());
@@ -72,27 +75,4 @@ public class UserDetailServiceIml implements UserDetailService {
             LOGGER.info(e.getMessage());
         }
     }
-
-//    @Override
-//    public List<UserData> findAll() {
-//        LOGGER.info("RegisterServiceIml/findAll");
-//        return registerUserRepo.findAll().
-//                stream().
-//                map(userEntity -> new UserData(
-//                        userEntity.getFirstName(),
-//                        userEntity.getPassword(),
-//                        userEntity.getEmail())).
-//                collect(Collectors.toList());
-//
-//    }
-//
-//    @Override
-//    public UserData findDynamicRegisterUserByPassword(String password) {
-//        LOGGER.info("RegisterServiceIml/findDynamicRegisterUserByPassword");
-//        DynamicUser userEntity = new DynamicUser();
-//        userEntity = registerUserRepo.findDynamicRegisterUserByPassword(password);
-//        return new UserData(userEntity.getFirstName(), userEntity.getPassword(), userEntity.getEmail());
-//    }
-
-
 }

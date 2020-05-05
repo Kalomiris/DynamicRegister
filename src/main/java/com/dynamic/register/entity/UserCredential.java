@@ -13,7 +13,7 @@ public class UserCredential {
 
     private String password;
 
-    private boolean firstLongin = true;
+    private boolean firstLogin = true;
 
     @OneToOne(mappedBy = "password")
     private UserDetails userDetails;
@@ -50,11 +50,11 @@ public class UserCredential {
         this.userDetails = userDetails;
     }
 
-    public boolean isFirstLongin() {
-        return firstLongin;
+    public boolean isFirstLogin() {
+        return firstLogin;
     }
 
-    public void setFirstLongin(boolean firstLongin) {
-        this.firstLongin = firstLongin;
+    public void setFirstLogin(boolean firstLogin) {
+        this.firstLogin = firstLogin;
     }
 }

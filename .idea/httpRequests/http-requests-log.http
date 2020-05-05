@@ -1,0 +1,57 @@
+POST http://localhost:8080/details/verify/user
+Accept: application/json
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/details/verify/user
+Accept: application/json
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/details/verify/user
+Accept: application/json
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/details/verify/user
+Accept: application/json
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/details/save/user
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/api/item?id=99
+Accept: application/json
+
+<> 2020-04-25T023733.404.json
+
+###
+
+GET http://localhost:80/api/item?id=99
+Accept: application/json
+
+<> 2020-04-25T023710.404.html
+
+###
+
+POST http://localhost:8080/details/save/user
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET http://localhost:80/api/item?id=99
+Accept: application/json
+
+<> 2020-04-25T023644.404.html
+
+###
+
