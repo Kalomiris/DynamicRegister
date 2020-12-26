@@ -7,21 +7,26 @@ import javax.validation.constraints.NotNull;
 
 public class UserDetailsModel extends BaseModel {
 
-    @NotNull
+    private long id;
+
     private String firstName;
 
-    @NotNull
     private String lastName;
 
-    @NotNull
     @Email(message = "is not an email")
     private String email;
 
-    @NotNull
     private String phone;
 
-    @NotNull
     private String address;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     private byte[] picByte;
 
