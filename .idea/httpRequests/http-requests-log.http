@@ -1,3 +1,10 @@
+GET http://localhost:80/api/item?id=99
+Accept: application/json
+
+<> 2021-01-04T203213.404.html
+
+###
+
 POST http://localhost:8080/details/verify/user
 Accept: application/json
 Content-Type: application/json
