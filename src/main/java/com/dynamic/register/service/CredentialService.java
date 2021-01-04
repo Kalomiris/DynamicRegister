@@ -7,4 +7,5 @@ public interface CredentialService {
     void saveCredentials (CredentialModel credentials);
 
     CredentialModel checkCredential(CredentialModel credentials) throws Exception;
+
 }

@@ -1,6 +1,6 @@
 package com.dynamic.register.mail.sender;
 
-import com.dynamic.register.model.email.Emailmodel;
+import com.dynamic.register.model.email.EmailModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.SimpleMailMessage;
@@ -19,7 +19,7 @@ public class EmailService {
         this.mailSender = mailSender;
     }
 
-    public void sendEmail(Emailmodel emailmodel) throws MessagingException {
+    public void sendEmail(EmailModel emailmodel) throws MessagingException {
         LOGGER.info("the email is sending...");
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(emailmodel.getEmail());

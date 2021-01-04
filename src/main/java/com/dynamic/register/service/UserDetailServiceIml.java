@@ -3,7 +3,7 @@ package com.dynamic.register.service;
 import com.dynamic.register.common.utils.PasswordGenerator;
 import com.dynamic.register.entity.UserDetails;
 import com.dynamic.register.mail.sender.EmailService;
-import com.dynamic.register.model.email.Emailmodel;
+import com.dynamic.register.model.email.EmailModel;
 import com.dynamic.register.model.user.CredentialModel;
 import com.dynamic.register.model.user.UserDetailsModel;
 import com.dynamic.register.repository.UserDetailsRepo;
@@ -13,10 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.MessagingException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -101,7 +99,7 @@ public class UserDetailServiceIml implements UserDetailService {
     }
 
     private void sendEmail(UserDetails registerUser, CredentialModel credential) {
-        Emailmodel emailmodel = new Emailmodel();
+        EmailModel emailmodel = new EmailModel();
         emailmodel.setEmail(registerUser.getEmail());
         emailmodel.setSubject("Generated Password");
         emailmodel.setText("Your new Password is");
@@ -113,4 +111,5 @@ public class UserDetailServiceIml implements UserDetailService {
             LOGGER.info(e.getMessage());
         }
     }
+
 }
