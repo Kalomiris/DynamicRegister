@@ -1,10 +1,8 @@
 package com.dynamic.register.controller;
 
-import com.dynamic.register.gcp.OcrVisionService;
 import com.dynamic.register.model.user.UserDetailsModel;
 import com.dynamic.register.repository.FileRepo;
 import com.dynamic.register.service.UserDetailService;
-import com.dynamic.register.wrapper.response.ResponseWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -28,12 +26,10 @@ public class UserDetailController {
 
     private final UserDetailService userDetailService;
     final FileRepo imageRepository;
-    final OcrVisionService ocrVisionService;
 
-    public UserDetailController(UserDetailService userDetailService, FileRepo imageRepository, OcrVisionService ocrVisionService) {
+    public UserDetailController(UserDetailService userDetailService, FileRepo imageRepository) {
         this.userDetailService = userDetailService;
         this.imageRepository = imageRepository;
-        this.ocrVisionService = ocrVisionService;
     }
 
     @PostMapping("save/user")
@@ -41,12 +37,12 @@ public class UserDetailController {
     public ResponseEntity<String> saveUser(@RequestParam("file") MultipartFile file) throws Exception {
         LOGGER.info("DynamicRegisterController/saveUser");
         String message;
-        ocrVisionService.ocrLabeling(file);
-        String result = ocrVisionService.extractText(file);
-        LOGGER.info(result + "###########################");
-        userDetailService.extractFileData(result);
-        message = "Successfully uploaded!";
-        return ResponseEntity.status(HttpStatus.OK).body(message);
+//        ocrVisionService.ocrLabeling(file);
+//        String result = ocrVisionService.extractText(file);
+//        LOGGER.info(result + "###########################");
+//        userDetailService.extractFileData(result);
+//        message = "Successfully uploaded!";
+        return ResponseEntity.status(HttpStatus.OK).body("result");
     }
 
 
